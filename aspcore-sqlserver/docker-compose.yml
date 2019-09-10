@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  # TODO: replace "myaspcoreapp" with your app name
+  myaspcoreapp:
+    image: ${DOCKER_REGISTRY-}myaspcoreapp
+    build:
+      context: .
+      # TODO: replace "ProjectFolder" with your main project
+      dockerfile: src/ProjectFolder/Dockerfile
+    volumes:
+      - '.:/app'
+    ports:
+      - '5001:5000'
+    depends_on:
+      - db
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: 1
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:80
+      ConnectionStrings__DefaultConnection: Server=db;Database=master;User=sa;Password=Your_password123;
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+        SA_PASSWORD: "Your_password123"
+        ACCEPT_EULA: "Y"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    logging:
+      # Enable logging by disabling following line
+      driver: none
+      options:
+        max-size: "10m"
+        max-file: "10" 
+
+volumes:
+  sqlserver-data:
