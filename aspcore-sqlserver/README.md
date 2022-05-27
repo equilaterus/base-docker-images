@@ -35,6 +35,9 @@ This image it's optimized to provide a fast to use **DEVELOPMENT** .net core env
  
    ```
    docker-compose -f docker-compose.yml up -d --build 
+
+   # Force recreate
+   docker-compose -f docker-compose.yml up -d --build --force-recreate
    ```
   
 2. Wait until the process ends and go to [http://localhost:5001](http://localhost:5001/).
