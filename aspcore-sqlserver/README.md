@@ -27,15 +27,15 @@ This image it's optimized to provide a fast to use **DEVELOPMENT** .net core env
 
 1. On Linux, if you need start Docker service:
 
-  ```
-  sudo systemctl start docker
-  ```
-  
-  If you prefer use this command to start the Docker Compose:
-
-  ```
-  docker-compose -f docker-compose.yml up -d --build 
-  ```
+   ```
+   sudo systemctl start docker
+   ```
+   
+   If you prefer use this command to start the Docker Compose:
+ 
+   ```
+   docker-compose -f docker-compose.yml up -d --build 
+   ```
   
 2. Wait until the process ends and go to [http://localhost:5001](http://localhost:5001/).
 
@@ -45,9 +45,9 @@ This image it's optimized to provide a fast to use **DEVELOPMENT** .net core env
    docker volume rm essentialstatsweb_sqlserver-data 
    ```
 
-* NOTES: UI hot reload is enabled, but debug C# is not possible.
+   * NOTES: UI hot reload is enabled, but debug C# is not possible.
 
-* **IMPORTANT!**: Adding new PROJECTS to the SOLUTION require updating **docker-compose.yml** to avoid publishing build files from your host OS to the docker volume(s).
+   * **IMPORTANT!**: Adding new PROJECTS to the SOLUTION require updating **docker-compose.yml** to avoid publishing build files from your host OS to the docker volume(s).
 
 
 ## Migrations using Docker
