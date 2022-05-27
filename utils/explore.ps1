@@ -1,3 +1,3 @@
 docker ps
-$container = Read-Host "Please enter container name:"
+$container = Read-Host "Please enter container ID:"
 docker exec -it $container sh
