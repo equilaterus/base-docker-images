@@ -57,10 +57,17 @@ This image it's optimized to provide a fast to use **DEVELOPMENT** .net core env
 
 If you have problems with your OS while doing migrations, you can use our Dockerfile:
 
-1. Open **Dockerfile** and comment/uncomment the latest sections according to your needs (DO NOT COMMIT changes).
+1. Open **Dockerfile** and comment/uncomment the latest sections according to your needs.
 
-2. Connect to the container on Rider going to **Services > Add Docker Connection (or open) ** and left click on the container **Create terminal**.
-   You can connect using the script [explore.ps1](https://github.com/equilaterus/base-docker-images/blob/master/utils/explore.ps1).
+2. You can connect to the container using these commands:
+
+   ```
+   # List images
+   docker ps
+
+   # And execute replacing {CONTAINER_ID}
+   docker exec -it {CONTAINER_ID} sh
+   ```
 
 3. Execute:
 
