@@ -23,34 +23,31 @@ This image it's optimized to provide a fast to use **DEVELOPMENT** .net core env
 
 ## Quickstart (Linux / Windows / Other OS)
 
-0. Copy docker from this repo into your project root.
+1. Copy docker from this repo into your project root and customize each file replacing all TODOs.
 
-1. On Linux, if you need start Docker service:
+2. Start the process:
 
-   ```
-   sudo systemctl start docker
-   ```
-   
-   If you prefer use this command to start the Docker Compose:
- 
    ```
    docker-compose -f docker-compose.yml up -d --build 
 
-   # Force recreate
+   # On Linux, if you need start Docker service
+   sudo systemctl start docker
+   
+   # If you have problems you can Force recreate
    docker-compose -f docker-compose.yml up -d --build --force-recreate
    ```
   
-2. Wait until the process ends and go to [http://localhost:5001](http://localhost:5001/).
+3. Wait until the process ends and go to [http://localhost:5001](http://localhost:5001/).
 
-3. To reset the database:
+4. To reset the database:
 
    ```
    docker volume rm essentialstatsweb_sqlserver-data 
    ```
 
-   * NOTES: UI hot reload is enabled, but debug C# is not possible.
+* UI hot reload is enabled, but debug C# is not possible.
 
-   * **IMPORTANT!**: Adding new PROJECTS to the SOLUTION require updating **docker-compose.yml** to avoid publishing build files from your host OS to the docker volume(s).
+* **IMPORTANT!**: Adding new PROJECTS to the SOLUTION require updating **docker-compose.yml** to avoid publishing build files from your host OS to the docker volume(s).
 
 
 ## Migrations using Docker
