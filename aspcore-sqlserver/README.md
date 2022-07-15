@@ -59,6 +59,9 @@ If you have problems with your OS while doing migrations, you can use our Docker
 2. You can connect to the container using these commands:
 
    ```
+   # Run container
+   docker-compose -f docker-compose.yml up -d --build 
+
    # List images
    docker ps
 
@@ -76,11 +79,20 @@ If you have problems with your OS while doing migrations, you can use our Docker
    ```
 
    You'll see changes locally reflected on your project!
-   
+
+## Troubleshooting
+
+* Problems with compilation? Try to clear volumes:
+
+  ```bash
+  docker volume rm $(docker volume ls -q)
+  ```
+
+* Review that all TODOs have been customized for your project. Do not forget to update volumes on your **docker-compose.yml** if you add new projects to your solution.
 
 ## Links
 
-* Visual Studio 2019 default docker images.
+* Visual Studio default docker images.
 * https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-2.2
 * https://docs.docker.com/engine/examples/dotnetcore/
 * https://natemcmaster.com/blog/2017/11/13/dotnet-watch-and-docker/
