@@ -1,7 +1,7 @@
 # TODO: Image for ASP Core 3.1. Change image to compile other versions
 # Recommended to use a -focal version to use the same OS
 # More versions: https://hub.docker.com/_/microsoft-dotnet-sdk
-FROM mcr.microsoft.com/dotnet/sdk:3.1.418-focal AS build
+FROM mcr.microsoft.com/dotnet/sdk:3.1.421-focal AS build
 WORKDIR /app
 
 # Just in case that you didn't define it on the docker-compose
@@ -37,5 +37,6 @@ ENTRYPOINT dotnet watch run --no-restore --urls "http://+:5000" --verbose
 
 # Create Migrations using the container:
 # Uncomment following lines
-#RUN dotnet tool update --global dotnet-ef
+# TODO: Replace version for your ASP Core version: https://www.nuget.org/packages/dotnet-ef/
+#RUN dotnet tool update --global dotnet-ef --version 3.1.27
 #ENTRYPOINT ["sh", "-c", "sleep 2073600"]
