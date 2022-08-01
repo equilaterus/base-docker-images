@@ -75,7 +75,7 @@ If you have problems with your OS while doing migrations, you can use our Docker
    export PATH="$PATH:$HOME/.dotnet/tools/"
    
    # Use dotnet ef!
-   dotnet ef migrations add NAME
+   dotnet ef migrations add {NAME}
    ```
 
    You'll see changes locally reflected on your project!
@@ -86,6 +86,18 @@ If you have problems with your OS while doing migrations, you can use our Docker
 
   ```bash
   docker volume rm $(docker volume ls -q)
+  ```
+
+* Problems with file permission? Change file ownership:
+
+  ```bash
+  sudo chown -R {YOURUSERNAME} src/{PROJECT}/Migrations
+  ```
+
+* If you're using the image ONLY to create Migrations, you may want to stop the service before running your application:
+
+  ```bash
+  docker-compose down
   ```
 
 * Review that all TODOs have been customized for your project. Do not forget to update volumes on your **docker-compose.yml** if you add new projects to your solution.
